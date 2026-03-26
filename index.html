@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seus Bônus — Produtividade Turbo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;700&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#080a10;--bg2:#0c0f1c;--cream:#f0ebe0;--muted:rgba(240,235,224,0.55);--gold:#f0c619;--rule:rgba(240,235,224,0.1);--blue:#1e3dbf}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.6;padding-bottom:80px}
+
+/* HEADER */
+.header{background:var(--bg2);border-bottom:1px solid var(--rule);padding:48px 24px 40px;text-align:center}
+.congrats-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(31,138,76,.15);border:1px solid rgba(31,138,76,.3);color:#3ecf7a;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;margin-bottom:24px}
+.header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.05;margin-bottom:12px}
+.header h1 em{font-style:italic;color:var(--gold)}
+.header p{font-size:1rem;color:var(--muted);max-width:480px;margin:0 auto}
+
+/* STEPS */
+.steps{display:flex;justify-content:center;gap:0;max-width:600px;margin:40px auto 0;padding:0 24px}
+.step{flex:1;text-align:center;position:relative;padding-bottom:8px}
+.step:not(:last-child)::after{content:'';position:absolute;top:16px;left:60%;width:80%;height:1px;background:var(--rule)}
+.step-dot{width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--bg);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.step span{font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+
+/* MAIN */
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+
+/* PDF DOWNLOAD */
+.pdf-block{margin:56px auto 0;max-width:780px;padding:0 24px}
+.pdf-card{background:var(--bg2);border:1px solid rgba(240,198,25,.3);padding:36px 40px;display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+@media(max-width:580px){.pdf-card{flex-direction:column;padding:28px 24px;text-align:center}}
+.pdf-icon{font-size:3.5rem;line-height:1;flex-shrink:0}
+.pdf-info{flex:1}
+.pdf-info h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:6px}
+.pdf-info p{font-size:.9rem;color:var(--muted);line-height:1.6}
+.dl-btn{display:inline-block;background:var(--gold);color:var(--bg);font-weight:700;font-size:.9rem;text-decoration:none;padding:14px 28px;white-space:nowrap;transition:opacity .15s;cursor:pointer;flex-shrink:0}
+.dl-btn:hover{opacity:.85}
+
+/* SECTION TITLE */
+.section-title{margin:64px 0 32px;text-align:center}
+.section-title .label{display:block;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px}
+.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.15}
+
+/* BONUS CARDS */
+.bonus-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.bonus-card{background:var(--bg2);border:1px solid var(--rule);padding:28px 28px 24px;transition:border-color .2s;text-decoration:none;display:flex;flex-direction:column;gap:0}
+.bonus-card:hover{border-color:rgba(240,198,25,.35)}
+.bonus-num{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:16px}
+.bonus-icon{font-size:2rem;line-height:1;margin-bottom:16px;display:block}
+.bonus-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--cream);margin-bottom:8px}
+.bonus-card p{font-size:.88rem;color:var(--muted);line-height:1.6;flex:1;margin-bottom:20px}
+.bonus-link{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.04em;margin-top:auto}
+.bonus-link::after{content:'→';transition:transform .15s}
+.bonus-card:hover .bonus-link::after{transform:translateX(4px)}
+
+/* DIVIDER */
+hr.div{border:none;border-top:1px solid var(--rule);margin:56px 0}
+
+/* NEXT STEPS */
+.next{background:var(--bg2);border:1px solid var(--rule);padding:36px 40px;margin-top:56px}
+@media(max-width:560px){.next{padding:28px 22px}}
+.next h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold);margin-bottom:20px}
+.next-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.next-list li{display:flex;gap:14px;align-items:flex-start;font-size:.93rem;color:var(--muted);line-height:1.55}
+.next-list li strong{color:var(--cream);font-weight:500}
+.nl-num{background:var(--gold);color:var(--bg);font-weight:700;font-size:.72rem;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--rule);margin-top:64px;padding:24px;text-align:center;font-size:.75rem;color:#3a3a4a;line-height:1.9}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="congrats-badge">✓ Compra confirmada</div>
+  <h1>Bem-vindo ao<br><em>Produtividade Turbo</em></h1>
+  <p>Seu acesso está pronto. Baixe o ebook e acesse seus 3 bônus exclusivos abaixo.</p>
+
+  <div class="steps">
+    <div class="step"><div class="step-dot">1</div><span>Baixe o ebook</span></div>
+    <div class="step"><div class="step-dot">2</div><span>Acesse os bônus</span></div>
+    <div class="step"><div class="step-dot">3</div><span>Comece hoje</span></div>
+  </div>
+</div>
+
+<!-- PDF DOWNLOAD -->
+<div class="pdf-block">
+  <div class="pdf-card">
+    <div class="pdf-icon">📘</div>
+    <div class="pdf-info">
+      <h2>Produtividade Turbo — Ebook</h2>
+      <p>10 métodos para melhorar seu foco e fazer mais em menos tempo. Leia no celular, tablet ou computador.</p>
+    </div>
+    <a href="#" class="dl-btn">⬇ Baixar PDF</a>
+  </div>
+</div>
+
+<!-- BONUS -->
+<div class="wrap">
+  <div class="section-title">
+    <span class="label">Seus bônus exclusivos</span>
+    <h2>3 ferramentas para você<br>começar hoje mesmo</h2>
+  </div>
+
+  <div class="bonus-grid">
+    <a href="bonus-ferramentas.html" target="_blank" class="bonus-card">
+      <span class="bonus-num">Bônus #1</span>
+      <span class="bonus-icon">🛠️</span>
+      <h3>Lista de Ferramentas de Produtividade</h3>
+      <p>As melhores ferramentas para foco, organização, gestão de tempo e automação — todas gratuitas ou freemium. Curadas e categorizadas.</p>
+      <span class="bonus-link">Acessar lista</span>
+    </a>
+    <a href="bonus-checklist.html" target="_blank" class="bonus-card">
+      <span class="bonus-num">Bônus #2</span>
+      <span class="bonus-icon">✅</span>
+      <h3>Checklist de Produtividade Diária e Semanal</h3>
+      <p>Checklist interativo com sua rotina diária e semanal completa. Marque cada item, acompanhe seu progresso e redefina quando quiser.</p>
+      <span class="bonus-link">Abrir checklist</span>
+    </a>
+    <a href="bonus-kanban.html" target="_blank" class="bonus-card">
+      <span class="bonus-num">Bônus #3</span>
+      <span class="bonus-icon">📌</span>
+      <h3>Quadro Kanban Pessoal</h3>
+      <p>Organize suas tarefas em colunas visuais: Backlog, Em andamento, Revisão e Concluído. Arraste e solte. Funciona sem internet, salva no navegador.</p>
+      <span class="bonus-link">Abrir quadro</span>
+    </a>
+  </div>
+
+  <hr class="div">
+
+  <!-- PRÓXIMOS PASSOS -->
+  <div class="next">
+    <h3>Por onde começar?</h3>
+    <ul class="next-list">
+      <li><span class="nl-num">1</span><span><strong>Hoje:</strong> Leia o Capítulo 1 do ebook — leva 15 minutos e já muda como você enxerga a procrastinação.</span></li>
+      <li><span class="nl-num">2</span><span><strong>Ainda hoje:</strong> Abra o Checklist (Bônus #2) e complete o checklist da manhã. São 4 itens simples.</span></li>
+      <li><span class="nl-num">3</span><span><strong>Amanhã:</strong> Configure seu primeiro Pomodoro com uma das ferramentas da lista (Bônus #1) e teste o método por 25 minutos.</span></li>
+      <li><span class="nl-num">4</span><span><strong>Esta semana:</strong> Monte seu Kanban (Bônus #3) com as tarefas que estão na sua cabeça. Esvazie a cabeça, coloque no quadro.</span></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p>© 2024 Produtividade Turbo · Todos os direitos reservados</p>
+  <p>Dúvidas? <a href="mailto:contato@produtividadeturbo.com" style="color:inherit">contato@produtividadeturbo.com</a></p>
+</footer>
+
+</body>
+</html>
